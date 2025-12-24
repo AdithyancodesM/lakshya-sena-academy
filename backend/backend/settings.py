@@ -18,7 +18,12 @@ SECRET_KEY = 'django-insecure-ze$eij%m)ik$-@ydbv)$ccde&e8f+fv12^74*o_58_40^8ytk3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'lakshya-sena-academy.onrender.com',
+    'lakshyasenaacademy.in',
+    'www.lakshyasenaacademy.in',
+]
+
 
 
 # Application definition
