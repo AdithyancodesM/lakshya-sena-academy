@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="page-header">
+    <h1>Contact Us</h1>
+    <p>Get in touch with Lakshya Sena Academy</p>
+</section>
+
+<section class="contact-section">
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h2>Send Us an Enquiry</h2>
+        
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+            <button type="submit" class="btn-primary">Submit Enquiry</button>
+        </form>
+
+        {% if success %}
+            <p class="success-msg">Thank you! We will contact you soon.</p>
+        {% endif %}
+    </div>
+
+    <!-- Map -->
+    <div class="contact-map">
+        <iframe 
+            src="https://www.google.com/maps?q=East%20Paruthipully%20Junction,%20Paruthipully,%20Palakkad&output=embed"
+            loading="lazy">
+        </iframe>
+    </div>
+
+</section>
+
+{% endblock %}

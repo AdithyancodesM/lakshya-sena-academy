@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lakshya Sena Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="top-bar">
+    <span class="top-bar-text">
+        East Paruthipully Junction, Paruthipully, Palakkad – 678573
+    </span>
+</div>
+
+    <!-- NAVBAR -->
+  <nav class="navbar">
+   <div class="logo">
+    <img src="{% static 'images/Lakshya.png' %}" alt="Lakshya Sena Academy Logo">
+</div>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links">
+    <li>
+        <a href="{% url 'home' %}"
+           class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            Home
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'about' %}"
+           class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+            About
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'courses' %}"
+           class="{% if request.resolver_match.url_name == 'courses' %}active{% endif %}">
+            Courses
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'gallery' %}"
+           class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">
+            Gallery
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'contact' %}"
+           class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+            Contact
+        </a>
+    </li>
+</ul>
+
+
+    <div class="nav-actions">
+        <a href="tel:+919380502805" class="btn-call">Call</a>
+        <a href="https://wa.me/919380502805" class="btn-whatsapp">WhatsApp</a>
+    </div>
+</nav>
+
+
+    <!-- PAGE CONTENT -->
+    {% block content %}{% endblock %}
+
+    <!-- JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+</html>
