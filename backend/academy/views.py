@@ -1,5 +1,6 @@
 import re
 from django.shortcuts import render
+from .models import Enquiry
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -16,51 +17,30 @@ def contact(request):
     error = None
 
     if request.method == "POST":
-        from .models import Enquiry
-
-        name = request.POST.get('name', '').strip()
-        phone = request.POST.get('phone', '').strip()
-        message = request.POST.get('message', '').strip()
+        name = request.POST.get("name", "").strip()
+        phone = request.POST.get("phone", "").strip()
+        message = request.POST.get("message", "").strip()
 
         pattern = re.compile(r'^(?:\+91)?[6-9]\d{9}$')
 
         if not pattern.match(phone):
             error = "Please enter a valid Indian mobile number."
         else:
-            # Save to DB (THIS WILL STILL WORK)
+            # ✅ SAVE TO DATABASE (SAFE)
             Enquiry.objects.create(
                 name=name,
                 phone=phone,
                 message=message
             )
 
-            # Try sending email (DO NOT CRASH IF IT FAILS)
-            try:
-                from django.core.mail import send_mail
-                from django.conf import settings
-
-                send_mail(
-                    subject='New Enquiry – Lakshya Sena Academy',
-                    message=f'''
-New enquiry received:
-
-Name: {name}
-Phone: {phone}
-Message: {message}
-                    ''',
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[settings.DEFAULT_FROM_EMAIL],
-                    fail_silently=True,  # 👈 IMPORTANT
-                )
-            except Exception:
-                pass  # Never crash production for email
-
+            # ❌ DO NOT SEND EMAIL HERE (PRODUCTION SAFE)
             success = True
 
-    return render(request, 'contact.html', {
-        'success': success,
-        'error': error
+    return render(request, "contact.html", {
+        "success": success,
+        "error": error
     })
+
 
 def about(request):
     return render(request, 'about.html')
