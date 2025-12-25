@@ -37,6 +37,42 @@ body {
     background-color: #000000;
     border-bottom: 2px solid #C9A24D;
 
+    /* ===== MOBILE NAVBAR ===== */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #C9A24D;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #0B0B0B;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        border-top: 1px solid #333;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
 
 }
 .nav-links a {
