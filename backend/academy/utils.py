@@ -10,10 +10,10 @@ def send_enquiry_email(name, phone, message):
 
     payload = {
         "personalizations": [{
-            "to": [{"email": "youracademyemail@gmail.com"}],
+            "to": [{"email": "lakshyasenaacademyemail@gmail.com"}],
             "subject": "New Enquiry – Lakshya Sena Academy"
         }],
-        "from": {"email": "no-reply@lakshyasenaacademy.in"},
+        "from": {"email": "lakshyasenaacademy@gmail.com"},
         "content": [{
             "type": "text/plain",
             "value": f"""
@@ -32,6 +32,9 @@ Message: {message}
     }
 
     try:
-        requests.post(url, json=payload, headers=headers, timeout=5)
+        response = requests.post(url, json=payload, headers=headers, timeout=5)
+        print("SendGrid status:", response.status_code)
+        print("SendGrid response:", response.text)
+
     except Exception:
         pass
