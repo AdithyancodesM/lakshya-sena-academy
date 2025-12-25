@@ -29,73 +29,42 @@ body {
 
 /* ===== NAVBAR ===== */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background-color: #0B0B0B;
-    padding: 12px 20px;
-}
-
-.nav-left {
+    margin-top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+    padding: 8px 30px;
+    background-color: #000000;
+    border-bottom: 2px solid #C9A24D;
 
-.logo {
-    color: #C9A24D;
-    font-weight: bold;
-    font-size: 18px;
-}
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
 }
-
 .nav-links a {
-    color: white;
+    position: relative;
+    color: #ffffff;
     text-decoration: none;
+    padding-bottom: 5px;
 }
 
-/* ===== HAMBURGER ===== */
-.hamburger {
-    display: none;
-    font-size: 26px;
+/* Active / current page */
+.nav-links a.active {
     color: #C9A24D;
-    cursor: pointer;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #0B0B0B;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 15px 0;
-        border-top: 1px solid #333;
-        z-index: 9999;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        padding: 12px 0;
-    }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #C9A24D;
+    transition: width 0.3s ease;
 }
 
+.nav-links a:hover::after {
+    width: 100%;
+}
 
 /* ===== HERO COVER IMAGE ===== */
 .hero-section {
@@ -190,6 +159,42 @@ body {
 
 .btn-whatsapp:hover {
     opacity: 0.85;
+}
+
+/* ===== MOBILE NAVBAR ===== */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #C9A24D;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #0B0B0B;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        border-top: 1px solid #333;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+    }
 }
 
 /* ===== HERO SECTION ===== */
