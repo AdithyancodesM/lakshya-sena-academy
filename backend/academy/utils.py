@@ -10,7 +10,7 @@ def send_enquiry_email(name, phone, message):
 
     payload = {
         "personalizations": [{
-            "to": [{"email": "lakshyasenaacademyemail@gmail.com"}],
+            "to": [{"email": "lakshyasenaacademy@gmail.com"}],
             "subject": "New Enquiry – Lakshya Sena Academy"
         }],
         "from": {"email": "lakshyasenaacademy@gmail.com"},
