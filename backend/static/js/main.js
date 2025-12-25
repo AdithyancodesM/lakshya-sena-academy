@@ -1,7 +1,10 @@
 function toggleMenu() {
     const nav = document.getElementById("navLinks");
-    nav.classList.toggle("show");
+    if (nav) {
+        nav.classList.toggle("show");
+    }
 }
+
 let currentIndex = 0;
 let images = [];
 
