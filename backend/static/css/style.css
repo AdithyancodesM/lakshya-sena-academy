@@ -27,26 +27,47 @@ body {
     font-weight: 500;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== NAVBAR (DESKTOP + MOBILE) ===== */
 .navbar {
-    margin-top: 0;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 30px;
+    padding: 10px 30px;
     background-color: #000000;
     border-bottom: 2px solid #C9A24D;
-
-
 }
-.nav-links a {
-    position: relative;
-    color: #ffffff;
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 38px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+/* NAV LINKS (DESKTOP) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #FFFFFF;
     text-decoration: none;
-    padding-bottom: 5px;
+    font-weight: 500;
+    position: relative;
 }
 
-/* Active / current page */
+/* ACTIVE LINK */
 .nav-links a.active {
     color: #C9A24D;
 }
@@ -55,7 +76,7 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -4px;
     width: 0;
     height: 2px;
     background-color: #C9A24D;
@@ -64,6 +85,47 @@ body {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #C9A24D;
+}
+
+/* ===== MOBILE NAVBAR ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        border-top: 1px solid #333;
+        padding: 15px 0;
+        z-index: 9999;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 12px 0;
+    }
+
+    .nav-actions {
+        display: none;
+    }
 }
 
 /* ===== HERO COVER IMAGE ===== */
