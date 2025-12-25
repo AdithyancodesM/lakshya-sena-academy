@@ -17,13 +17,9 @@
 </div>
 
 <nav class="navbar">
-    <div class="logo">
-        Lakshya Sena Academy
-    </div>
-
-    <!-- HAMBURGER -->
-    <div class="hamburger" onclick="toggleMenu()">
-        ☰
+     <div class="nav-left">
+        <div class="logo">Lakshya Sena Academy</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </div>
 
     <ul class="nav-links" id="navLinks">
@@ -41,11 +37,12 @@
 </nav>
 
 
-    <!-- PAGE CONTENT -->
-    {% block content %}{% endblock %}
+ 
 
-    <!-- JS -->
-    <script src="{% static 'js/main.js' %}"></script>
+<!-- PAGE CONTENT -->
+{% block content %}{% endblock %}
+<!-- JS -->
+<script src="{% static 'js/main.js' %}"></script>
 
 
 
