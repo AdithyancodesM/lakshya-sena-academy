@@ -17,8 +17,15 @@
 </div>
 
 <nav class="navbar">
-     <div class="nav-left">
-     <div><img src="backend\static\images\Lakshya.png" alt="Lakshya-logo"></div>
+     {% load static %}
+
+<div class="logo">
+    <a href="{% url 'home' %}">
+        <img src="{% static 'images/Lakshya.png' %}"
+             alt="Lakshya Sena Academy Logo">
+    </a>
+</div>
+
         <div class="hamburger" onclick="toggleMenu()">☰</div>
     </div>
 
